@@ -7,8 +7,12 @@ description = "SASL XOAUTH2 plugin for Postfix (O365/Gmail) — Rust reimplement
 license = "Apache-2.0"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 name = "saslxoauth2"
+
+[[bin]]
+name = "sasl-xoauth2-test"
+path = "src/bin/test_token.rs"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }

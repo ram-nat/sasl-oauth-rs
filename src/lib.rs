@@ -3,10 +3,10 @@
 //! Exports `sasl_client_plug_init` for Cyrus SASL to discover and load.
 
 mod client;
-mod config;
+pub mod config;
 mod ffi;
-mod log;
-mod token_store;
+pub mod log;
+pub mod token_store;
 
 use libc::{c_char, c_int, c_uint, c_void};
 use std::ptr;

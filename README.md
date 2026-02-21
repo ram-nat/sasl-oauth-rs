@@ -100,6 +100,21 @@ sudo chmod 700 /var/spool/postfix/etc/tokens/
 # Token files go here; sasl_passwd paths are relative to the chroot
 ```
 
+## Testing Token Refresh
+
+Test that your config and token file work without going through Postfix:
+
+```bash
+# Build the test tool
+cargo build --release
+
+# Test token refresh
+./target/release/sasl-xoauth2-test /path/to/token-file.json
+
+# With a custom config path
+./target/release/sasl-xoauth2-test /path/to/token-file.json --config /path/to/sasl-xoauth2.conf
+```
+
 ## Configuration Reference
 
 `/etc/sasl-xoauth2.conf`:
