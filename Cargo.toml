@@ -33,3 +33,12 @@ assets = [
     ["target/release/libsaslxoauth2.so", "usr/lib/x86_64-linux-gnu/sasl2/", "644"],
     ["config/sasl-xoauth2.conf", "etc/sasl-xoauth2.conf", "644"],
 ]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/libsaslxoauth2.so", dest = "/usr/lib64/sasl2/", mode = "644" },
+    { source = "config/sasl-xoauth2.conf", dest = "/etc/sasl-xoauth2.conf", mode = "644" },
+]
+
+[package.metadata.generate-rpm.requires]
+cyrus-sasl-lib = ">= 2.1.28"
