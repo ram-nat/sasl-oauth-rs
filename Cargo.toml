@@ -1,0 +1,31 @@
+[package]
+name = "sasl-xoauth2"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+description = "SASL XOAUTH2 plugin for Postfix (O365/Gmail) — Rust reimplementation"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+name = "saslxoauth2"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = "3"
+libc = "0.2"
+log = "0.4"
+
+[dev-dependencies]
+tempfile = "3"
+
+[build-dependencies]
+bindgen = "0.71"
+
+[package.metadata.deb]
+depends = "libsasl2-2 (>= 2.1.28)"
+assets = [
+    ["target/release/libsaslxoauth2.so", "usr/lib/x86_64-linux-gnu/sasl2/", "644"],
+    ["config/sasl-xoauth2.conf", "etc/sasl-xoauth2.conf", "644"],
+]

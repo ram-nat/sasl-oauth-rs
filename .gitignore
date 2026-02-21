@@ -1,0 +1,12 @@
+# Build artifacts
+/target/
+
+# Development tools (not part of the published package)
+/tools/
+
+# Editor/IDE
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
