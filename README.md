@@ -4,17 +4,7 @@ A Rust reimplementation of [sasl-xoauth2](https://github.com/tarickb/sasl-xoauth
 
 ## Why Rust?
 
-The original C++ implementation depends on `libcurl` and `libjsoncpp` at runtime. This Rust version produces a **self-contained** `libsaslxoauth2.so` with **no runtime dependencies** beyond `libc`, using:
-
-- [ureq](https://crates.io/crates/ureq) + **rustls** for HTTP/TLS (no OpenSSL)
-- [serde_json](https://crates.io/crates/serde_json) for JSON
-- [bindgen](https://crates.io/crates/bindgen) for correct Cyrus SASL FFI at build time
-
-| | C++ original | Rust version |
-|---|---|---|
-| Runtime deps | libcurl, libjsoncpp, libssl | libc only |
-| Build deps | cmake, libsasl2-dev, libcurl-dev, libjsoncpp-dev | cargo, libsasl2-dev |
-| Binary size | ~50 KB + shared libs | ~3.3 MB (fully self-contained) |
+The genie preferred it and it sounded fun. It does avoid the dependency on openssl and libcurl - however, it brings in rust equivalent in rustls and ureq.
 
 ## Quick Start
 
